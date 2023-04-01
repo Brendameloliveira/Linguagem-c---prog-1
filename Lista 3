@@ -1,0 +1,277 @@
+// 1 
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int lerv(int vet[], int inicio, int fim, int n)
+{
+    if(inicio > fim){
+    return -1;
+}
+int meio = (fim + inicio) /2;
+
+if(vet[meio] == n){
+    return meio;
+} if(vet[meio] > n){
+    return lerv( vet, inicio, meio -1, n );
+}else {
+    return lerv( vet,meio + 1, fim,  n);
+}
+    
+}
+
+int main()
+{
+int i, t, n;
+
+printf("digite o tamanho do vetor:\n");
+scanf("%d" ,&t);
+
+int vet[t];
+
+printf("Digite o valor a ser procurado \n");
+scanf("%d", &n);
+
+printf(" digte os elementos do vetor:\n ");
+for(i = 0; i< t; i++){
+    scanf("%d", &vet[i]);
+}
+
+int r = lerv(vet,0,  t-1, n);
+
+if(r == -1){
+    printf("O valor %d nao foi encontrado no vetor", n);
+}else {
+    printf( "o valor %d foi encontrado no indice %d do vetor", n , r);
+}
+return 0;
+    
+}
+
+// 2
+
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int soma( int n ){
+
+
+    if ( n == 1) {
+        
+    return 1;
+    } else{
+        return soma(n - 1 )+ n;
+    }
+}
+
+int main()
+{
+    int r, numero;
+    
+    printf( "Digite o numero inteiro desejado:\n ");
+    scanf("%d", &numero );
+    
+ r = soma(numero);
+    
+    printf(" A soma de todos os numeros de 1 ate %d e de %d \n", numero , r );
+    
+    return 0;
+}
+
+// 3
+#include <stdio.h>
+#include <stdlib.h>
+
+
+void eh_multiplo(int a, int b, int *resp) {
+    if (a % b == 0) {
+        *resp = 1;
+    } else {
+        *resp = 0;
+    }
+}
+    
+    
+    int main() {
+    int x, y, i, *vet;
+
+    printf("Digite o valor de x: ");
+    scanf("%d", &x);
+
+    printf("Digite o valor de y: ");
+    scanf("%d", &y);
+
+    vet = (int*) malloc(y * sizeof(int));
+
+    printf("Digite os %d numeros inteiros:\n", y);
+    for (i = 0; i < y; i++) {
+        scanf("%d", &vet[i]);
+    }
+
+    printf("\n");
+
+    for (i = 0; i < y; i++) {
+        int resp = 0;
+        eh_multiplo(vet[i], x, &resp);
+        if (resp) {
+            printf("%d eh multiplo de %d\n", vet[i], x);
+        } else {
+            printf("%d nao eh multiplo de %d\n", vet[i], x);
+        }
+    }
+
+    free(vet);
+
+    return 0;
+}
+// 4 
+
+#include <stdio.h>
+#include <stdlib.h>
+
+void lmatriz(int **mat, int tam) {
+    int i, j;
+    printf("Digite os valores da matriz:\n");
+    for (i = 0; i < tam; i++) {
+        for (j = 0; j < tam; j++) {
+            scanf("%d", &mat[i][j]);
+        }
+    }
+}
+
+void imprimirmatriz(int **mat, int tam) {
+    int i, j;
+    printf("Matriz Resultante:\n");
+    for (i = 0; i < tam; i++) {
+        for (j = 0; j < tam; j++) {
+            printf("%d ", mat[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+void calcularmat(int **mat, int tam, int num) {
+    int i, j;
+    for (i = 0; i < tam; i++) {
+        for (j = 0; j < tam; j++) {
+            mat[i][j] = mat[i][j] * num;
+        }
+    }
+}
+
+int main() {
+    int tam, num, i;
+    int **mat;
+
+    printf("Digite o tamanho da matriz: ");
+    scanf("%d", &tam);
+
+    mat = (int**)malloc(tam * sizeof(int*));
+    for (i = 0; i < tam; i++) {
+        mat[i] = (int*)malloc(tam * sizeof(int));
+    }
+
+    lmatriz(mat, tam);
+
+    printf("Digite o número para calcular o produto escalar: ");
+    scanf("%d", &num);
+
+    calcularmat(mat, tam, num);
+
+    imprimirmatriz(mat, tam);
+
+    for (i = 0; i < tam; i++) {
+        free(mat[i]);
+    }
+    free(mat);
+
+    return 0;
+}
+
+
+// 5
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+
+
+typedef struct {
+    float x;
+    float y;
+}ponto;
+
+int main()
+{
+    ponto p;
+    float distancia;
+    
+    printf("Digite as cordenadas do seu ponto no plano\n");
+    scanf("%f %f", &p.x , &p.y);
+    
+    distancia= sqrt(pow (p.x, 2) + pow(p.y , 2));
+    
+    printf(" A distancia do ponto (%2.f , %2.f) ate (0,0) eh %2.f", p.x, p.y , distancia);
+    return 0;
+}
+
+//6 
+
+#include <stdio.h>
+
+typedef struct {
+    int dia;
+    int mes;
+    int ano;
+} data;
+
+typedef struct {
+    char nome[50];
+    char curso[50];
+    int idade;
+    data dn;
+    double notas[3];
+    double coeficiente;
+} aluno;
+
+int main() {
+    int n; 
+    printf("Digite o número de alunos: ");
+    scanf("%d", &n);
+
+
+    aluno turma[n];
+
+    
+    for (int i = 0; i < n; i++) {
+        printf("\n-- Cadastro do aluno %d --\n", i+1);
+        printf("Nome: ");
+        scanf("%s", turma[i].nome);
+        printf("Curso: ");
+        scanf("%s", turma[i].curso);
+        printf("Idade: ");
+        scanf("%d", &turma[i].idade);
+        printf("Data de nascimento (dd/mm/aaaa): ");
+        scanf("%d/%d/%d", &turma[i].dn.dia, &turma[i].dn.mes, &turma[i].dn.ano);
+        printf("Notas das 3 provas (separadas por espaço): ");
+        scanf("%lf %lf %lf", &turma[i].notas[0], &turma[i].notas[1], &turma[i].notas[2]);
+
+        turma[i].coeficiente = (turma[i].notas[0]*2 + turma[i].notas[1]*3 + turma[i].notas[2]*4) / 9.0;
+    }
+
+    printf("\n--- Dados dos alunos cadastrados ---\n");
+    for (int i = 0; i < n; i++) {
+        printf("\nAluno %d:\n", i+1);
+        printf("Nome: %s\n", turma[i].nome);
+        printf("Curso: %s\n", turma[i].curso);
+        printf("Idade: %d\n", turma[i].idade);
+        printf("Data de nascimento: %02d/%02d/%04d\n", turma[i].dn.dia, turma[i].dn.mes, turma[i].dn.ano);
+        printf("Notas: %.1lf %.1lf %.1lf\n", turma[i].notas[0], turma[i].notas[1], turma[i].notas[2]);
+        printf("Coeficiente: %.2lf\n", turma[i].coeficiente);
+    }
+
+    return 0;
+}
+
+
