@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+
+
+int fatorial( int n){
+    
+    if( n ==0 | n == 1){
+        return 1;
+    }else{ 
+        return fatorial(n - 1 )* n;
+    
+    }
+}
+
+int main(){
+    
+    int nu;
+    
+    printf("Digite o numero que deseja calcular o fatorial: \n");
+    scanf("%d", &nu);
+    
+    printf("O fatorial de %d eh de %d" , nu, fatorial(nu));
+    
+    return 0;
+}
