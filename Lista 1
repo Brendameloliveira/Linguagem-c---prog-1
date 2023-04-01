@@ -1,0 +1,262 @@
+
+// 1 
+
+#include <stdio.h>
+
+int main()
+{
+    int i;
+    float p;
+    
+    printf("Digite sua idade e peso separado por enter ");
+    scanf("%d %f" , &i , &p);
+    
+    if(i >= 18 && i<= 67 && p > 50){
+     
+            printf("voce esta apto para doar sangue");
+    }
+
+    else  {
+        printf(" voce nao esta apto para doar sangue");
+    }
+    
+    return 0;
+}
+
+
+// 2
+
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main()
+{
+        
+    double a , m ,imc, p;
+    
+
+    
+  printf("informe seu peso :\n");
+  scanf("%e", &p);
+  
+  printf("informe sua altura em metros:\n");
+  scanf("%e", &a);
+  
+  m = (double)p / pow(2,a);
+ 
+  printf("\e\n", imc);
+
+  if( imc > 20 && imc < 25){
+      printf("peso ideal\n");
+  }else if(imc > 25 && imc < 30){
+      printf("sobepeso\n");
+  }else if(imc > 30 && imc < 40){
+      printf("obesidade\n");
+  }else if( imc > 40){
+      printf("obesidade morbida\n");
+  }
+
+    return 0;
+}
+
+
+// 3a)
+
+#include<stdio.h>
+
+int main()
+{
+
+    int i, idade ;
+    float soma= 0;
+    float media;
+    
+    for(i = 1 ; i <= 4 ; i++){
+        printf( "%d-- Digite a idade do(a) discente\n", i);
+        scanf("%d" , &idade);
+        soma = soma + idade;
+        
+    }
+    media = (float) soma / 4;
+
+    printf("A media de idade e de: %2.f" , media);
+
+ return 0;
+}
+
+ // 3b)
+ 
+ #include<stdio.h>
+
+int main()
+{
+
+    int qnt = 1, idade , soma = 0;
+    int media;
+
+while(idade != -1){
+        printf( "____%d_____Digite a idade do(a) discente, quando finalizar digite -1 \n", qnt);
+        scanf("%d" , &idade);
+        qnt++;
+        soma =+ idade;
+}
+
+  media = soma / qnt;
+  
+    printf("A media de idade e de: %d" , media);
+
+ return 0;
+}
+ 
+ //4a)
+ 
+ #include<stdio.h>
+
+int main()
+{
+
+    int qnt = 1, idade , soma = 0;
+    int media;
+
+while(idade != -1){
+        printf( "____%d_____Digite a idade do(a) discente, quando finalizar digite -1 \n", qnt);
+        scanf("%d" , &idade);
+        qnt++;
+        soma =+ idade;
+}
+
+  media = soma / qnt;
+  
+    printf("A media de idade e de: %d" , media);
+
+ return 0;
+}
+
+//4b)
+
+#include<stdio.h>
+int main()
+{
+
+    int i, g , qf = 0, qm = 0 ,qnb = 0, qo = 0;
+
+    while (g != -1)
+    {
+       
+        printf("%d-- Digite o generos dos discente de acordo com o seguinte codigo :\n 1 - Feminino\n 2- Masculino \n 3- Nao binario \n 4- Outros\n\n Quando finalizar digite -1\n", i);
+        scanf("%d" , &g);
+        
+            if(g == 1){
+            qf++;
+        } if(g ==2){
+            qm++;
+        } if(g== 3){
+            qnb++;
+        }  if(g == 4){
+            qo++;
+        }
+    }
+  
+    printf("A quatidade de discentes Feminos e de :%d\n A quatidade de discentes masculinos e de :%d\n A quatidade de discentes nao binarios e de :%d\n A quatidade de discentes de outros generos e de %d" , qf , qm , qnb, qo);
+    
+    
+
+ return 0;
+}
+
+
+//5 
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <stdbool.h>
+
+int main(){
+    int fat,i,j,x;
+    float sen;
+    bool sub;
+
+    printf("Digite o valor do seno:");
+    scanf("%d",&x);
+    fat = 1;
+    sub = true;
+    sen = x;
+
+    for(i = 3; i <= 9; i++){
+        fat = 1;
+        for(j = i; j > 1; j--){
+            fat *= j;
+        } 
+
+        if(sub){
+            sen -= (float)pow(x,i)/fat;
+            sub = false;
+        }else if(!sub){
+            sen += (float)pow(x,i)/fat;
+            sub = true;
+        }
+        i++;
+    }
+
+    printf("Valor do seno de %d: %.4f",x,sen);
+    return 0;
+} 
+
+//6
+
+#include <stdio.h>
+
+int main()
+{
+    float sf , si;
+    float i,op, d, s ;
+    
+    printf("Digite o saldo de sua conta bancaria:\n");
+    scanf("%f",&si);
+    
+while (si!=0){
+    printf("Digite a operação desejada de acordo com o seguinte codigo:\n 1== DEPOSITO\n 2== SAQUE\n 3 == Finalizar\n");
+    scanf("%f",&op);
+    
+    if(op == 1){
+        printf("Qual valor deseja depositar?\n");
+        scanf("%f",&d);
+        sf= si+ d;
+        
+    } else if(op == 2){
+        printf("Qual valor deseja sacar\n");
+        scanf("%f",&s);
+        sf = si- s;
+        
+    } else if(op == 3){
+        printf( "Seu saldo final e de : %2.f \n",sf);
+        if(sf >0){
+            printf("CONTA OERACIONAL\n");
+        }if( sf < 0){
+        printf("CONTA NEGATIVADA");
+        }if( sf == 0){
+            printf("CONTA ZERADA");
+        }
+        
+        break;
+    }
+    }
+    
+    return 0;
+}
+
+
+
+
+
+ 
+ 
+ 
+ 
+
+
+
+
