@@ -1,0 +1,67 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+
+
+void le_array(int *vet, int qtd){
+    int i;
+    
+    for(i = 0; i< qtd; i++){
+            printf("Digite os elementos do vetor:\n");
+            scanf("%d", &vet[i]);
+        }
+}
+
+void exibe_array(int *vet, int qtd){
+    int i;
+    
+    printf("[");
+      for(i = 0; i< qtd; i++){
+    printf("%d", vet[i]);
+    if( i < qtd -1){
+        printf(" ,");
+    }else{ printf("]");
+      }
+}
+}
+
+long int multiplica_array(int *vet, int qtd){
+
+int i;
+long int mult = 1;
+  for(i = 0; i< qtd; i++){
+      mult = mult*vet[i];
+  } return mult;
+  }
+  
+  int main(){
+      int *vetor;
+      int qnt, i;
+      
+    
+    
+      printf("Digite o tamanho do vetor desejado: \n");
+      scanf("%d" , &qnt);
+
+vetor = (int*)malloc(qnt * sizeof(int));
+        
+        le_array(vetor,qnt);
+        
+       
+         exibe_array(vetor,qnt);
+         
+         printf("\nO resultado da multiplicação dos elementos do vetor e de: %ld" ,multiplica_array(vetor,qnt) );
+         
+         
+
+        
+  return 0;
+        
+  }
+  
+   
+   
+  
+  
+  
+  
