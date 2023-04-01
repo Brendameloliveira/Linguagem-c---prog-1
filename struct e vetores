@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<math.h>
+#include<stdlib.h>
+
+typedef struct{
+    int x[2];
+    int y[2];
+}Ponto;
+
+int distancia(int x[2], int y[2]){
+    float distancia;
+    
+   distancia = sqrt(pow(x[1] - x[0],2) + pow(y[1] - y[0],2));
+    
+    return distancia;
+}
+
+int main(){
+    Ponto p;
+    
+    
+    printf("Digite as coordenadas do primeiro ponto (x,y):\n");
+    scanf("%d %d", &p.x[0] , &p.y[0]);
+    
+     printf("Digite as coordenadas do segundo ponto (x,y):\n");
+    scanf("%d %d", &p.x[1] , &p.y[1]);
+    
+    float d = distancia (p.x , p.y);
+    
+    printf("A distancia de (%d, %d) e (%d , %d) eh de: %2.f" , p.x[0], p.y[0] , p.x[1], p.y[1], d);
+    
+    return 0;
+}
